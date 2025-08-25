@@ -3,7 +3,8 @@ import axios from "../middleware/axios"
 import toast from "react-hot-toast";
 import userStore from "./userStore";
 const cartStore=create((set,get)=>({
-    lodding:true,
+
+    lodding:false,
     smallLoad:null,
    carts:[],
    cartLength:0,
@@ -12,7 +13,10 @@ const cartStore=create((set,get)=>({
    payment:false,
    original:0,
   getCart:async () => {
-
+    
+      set({lodding:true,first:false})
+      
+    
     try {
         const res=await axios.get("/cart");
        

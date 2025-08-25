@@ -12,6 +12,7 @@ const productStore =create((set,get)=>({
     AllProduct:[],
     Analitics:[],
     Featured:[],
+    recommendLoad:false,
     ProductsCrate:async (e) => {
         // set({lodding:true});
         set({error:null,smalLodiing:true})
@@ -58,7 +59,7 @@ catagoryProd:async (catagory,user) => {
     }
 },
 recommendProduct:async () => {
-     set({lodding:true});
+     set({recommendLoad:true});
     try {
        const res=await axios.get("/product/recommed");
          let products=res.data;
@@ -74,10 +75,10 @@ recommendProduct:async () => {
             })
           }
         
-set({lodding:false,products})
+set({recommendLoad:false,products})
     } catch (error) {
       
-        set({lodding:false})
+        set({recommendLoad:false})
     }
 },
 

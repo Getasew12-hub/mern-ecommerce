@@ -23,7 +23,7 @@ const stripePromise= loadStripe('pk_test_51RrzZIRF0CQPUam28s7Sppw51JLcSMaayzQp1n
   const addreCreate=useRef()
   const [wait,setWait]=useState(false)
   const {carts,lodding,getCart,total,original,AddToCart,cartLength,smallLoad} =cartStore()
-const {recommendProduct,products}=productStore()
+const {recommendProduct,products,recommendLoad}=productStore()
 const {user,upddateGet,Address,userAddress}=userStore()
 useEffect(()=>{
   getCart()
@@ -107,7 +107,7 @@ function removevisibility(){
         { carts.length>0 && products.length>0 && <div className="recommedContainer">
           <h2>Recommend product</h2>
 
-          <div className="products">
+        {recommendLoad ? <Large/>:  <div className="products">
             <div className="product-containe">
          {products.map((val,index)=>
                 <div className="item" key={index}>
@@ -128,7 +128,7 @@ function removevisibility(){
                 </div>
         )}
             </div>
-          </div>
+          </div>}
          </div>}
          <div className="address-create" ref={addreCreate} onClick={removevisibility} >
           <div className="form-address" onClick={(e)=> e.stopPropagation()}>
