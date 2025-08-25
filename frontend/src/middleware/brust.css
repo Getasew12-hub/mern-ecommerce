@@ -1,0 +1,22 @@
+.brust-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh
+}
+
+.brust{
+    position: absolute;
+
+}
+
+@keyframes burst{
+    from{
+         transform: translate(0,0) rotate(0deg);
+         opacity: 1;
+    }to{
+        transform:translate(var(--x),var(--y)) rotate(var(--rot));
+        opacity: 0;
+    }
+}

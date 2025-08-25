@@ -1,0 +1,112 @@
+.allproduct-contaniner{
+    background-color: gray;
+    margin: 0 auto;
+    max-width: 1200px;
+    animation: homemove 0.6s linear forwards;
+   
+      
+   
+}
+.allproduct-contaniner>.header{
+ overflow-x: auto;
+}
+.allproduct-contaniner>.header::-webkit-scrollbar{
+    display: none;
+}
+.allproduct-contaniner>.header>.item{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    gap: 5px;
+    padding: 10px 5px;
+    background: rgb(35, 50, 64);
+    color: white;
+    font-weight: bold;
+    box-sizing: border-box;
+    min-width: 900px;
+   
+    
+}
+.allproduct-contaniner>.all-item{
+    overflow: auto;
+    height: 71vh;
+   
+    overflow-x: auto;
+   
+}
+.allproduct-contaniner>.all-item>.each_item{
+display: grid;
+grid-template-columns: repeat(8,1fr);
+gap: 5px;
+box-sizing: border-box;
+border-bottom: 1px solid white;
+min-width: 900px;
+
+}
+
+.allproduct-contaniner>.all-item::-webkit-scrollbar-thumb{
+    background: dodgerblue;
+}
+.allproduct-contaniner>.all-item>.each_item>.item{
+    border-left: 1px solid white;
+  padding: 15px 5px;
+
+}
+.allproduct-contaniner>.all-item>.each_item>.img{
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 5px;
+    box-sizing: border-box;
+    
+}
+.allproduct-contaniner>.all-item>.each_item>.img>img{
+  min-width:100%;
+  max-width: 130%;
+  min-height: 100%;
+}
+.allproduct-contaniner>.all-item>.each_item>.update>button{
+    padding: 2px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+
+}
+.allproduct-contaniner>.updateProduct{
+    position: fixed;
+    flex-direction: column;
+    top: -200px;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+   
+    gap: 25px;
+    visibility: hidden;
+   
+}
+.allproduct-contaniner>.updateProduct>.updateitem{
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.allproduct-contaniner>.updateProduct>.updateitem>.icon{
+   
+    font-size: 35px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+@media(max-width:500px){
+    .allproduct-contaniner>.updateProduct>.updateitem{
+        width: 100%;
+        border-radius: 0;
+    }
+   
+}

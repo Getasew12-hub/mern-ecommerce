@@ -1,0 +1,73 @@
+.createPro-conatainer{
+    display: flex;
+    justify-content: center;
+       animation: homemove 0.6s linear forwards;
+}
+
+.createPro-conatainer>form{
+    width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.createPro-conatainer>form>.crateproduct,
+.createPro-conatainer>form>select,
+.createPro-conatainer>form >input{
+    width: 100%;
+    padding: 10px;
+     font-size: 17px;
+     border: 1px solid rgb(128, 128, 128,0.7);
+     border-radius: 5px;
+    outline-color:   mediumaquamarine;
+    box-sizing: border-box;
+}
+.createPro-conatainer>form >textarea{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    resize: vertical;
+    border-radius: 5px;
+    font-size: 17px;
+      border: 1px solid rgb(128, 128, 128,0.7);
+      min-height: 100px;
+      max-height: 200px;
+      outline-color: mediumseagreen;
+}
+.createPro-conatainer>form>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.createPro-conatainer>form>div >.image-uploader{
+    width: 100px;
+    padding: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    border: 1px solid rgb(128, 128, 128,0.7);
+}
+.createPro-conatainer>form>.crateproduct{
+    font-weight: bold;
+    border: 1px solid mediumseagreen;
+    background: mediumseagreen;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width:500px){
+    .createPro-conatainer>form{
+        width: 100%;
+        padding: 0 10px;
+    }
+}

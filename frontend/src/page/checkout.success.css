@@ -1,0 +1,51 @@
+.succes-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.succes-container>.succes{
+    background-color: rgb(34, 63, 93);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    z-index: 500;
+}
+.order-delivery{
+    text-align: start;
+    margin: 10px 0;
+    border-top: 1px solid white;
+
+}
+.succes-container>.succes>.order-delivery>.order{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+
+}
+.succes-container>.succes>button{
+    width: 100%;
+    background-color: mediumseagreen;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.succes-container>.succes>a{
+    color: orangered;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 5px;
+    
+}
+
+@media(max-width:500px){
+   .succes-container{
+    padding: 0 10px;
+   } 
+}

@@ -1,0 +1,42 @@
+
+.dashbord-container >.navigator-buttton{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 90px;
+    margin-bottom: 50px;
+   
+}
+.dashbord-container >.navigator-buttton>button{
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    
+    font-size: 17px;
+}
+@media(max-width:600px){
+    .dashbord-container >.navigator-buttton{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .dashbord-container >.navigator-buttton>button{
+        font-weight: 100;
+   
+    }
+}
+@media(max-width:500px){
+    .dashbord-container >.navigator-buttton{
+        gap: 5px;
+        flex-wrap: wrap;
+
+    }
+    .dashbord-container >.navigator-buttton>button{
+        font-weight: 100;
+    font-size: 13px;
+    padding: 3px;
+    }
+}

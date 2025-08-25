@@ -1,0 +1,169 @@
+.order-container>.product-item>.header>.item{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    background-color: rgb(17, 43, 69);
+    color: white;
+    font-weight: bold;
+     padding: 5px ;
+     gap: 10px;
+     width: 100%;
+min-width: 750px;
+}
+.order-container>.product-item>.header{
+    overflow-x: auto;
+}
+.order-container>.product-item>.header::-webkit-scrollbar{
+    display: none;
+}
+.order-container{
+   display: flex;
+   justify-content: center;
+   animation: homemove 0.6s linear forwards;
+   overflow: hidden;
+}
+.order-container>.product-item>.each-order{
+    
+    overflow-x: auto;
+}
+.order-container>.product-item>.each-order::-webkit-scrollbar-thumb{
+
+    background: dodgerblue;
+}
+.order-container>.product-item>.each-order>.item{
+   min-width: 750px;
+}
+.order-container>.product-item>.each-order>.item>.order-item>.img{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+     margin: 5px;
+    border-radius: 50%;
+}
+.order-container>.product-item>.each-order>.item>.order-item>.img >img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.order-container>.product-item>.each-order>.item{
+    width: 100%;
+}
+.order-container>.product-item>.each-order>.item>.order-item{
+   display: grid;
+   grid-template-columns: repeat(7,1fr);
+   border-bottom: 1px solid white;
+   gap: 10px;
+}
+.order-container>.product-item>.each-order>.item>.order-item>.item{
+    border-left: 1px solid white;
+    padding: 5px;
+}
+.order-container>.product-item>.each-order>.item>.order-item>.item>.button{
+    padding: 5px;
+
+    cursor: pointer;
+}
+.order-container>.product-item{
+    max-width: 1300px;
+     background: gray;
+     overflow: hidden;
+    
+}
+.order-container>.product-item>.each-order>.item{
+ max-height: 66vh;
+     overflow-y: auto;
+}
+
+.order-container>.product-item>.each-order>.item::-webkit-scrollbar{
+    width: 5px;
+    background-color: black;
+}
+.order-container>.product-item>.each-order>.item::-webkit-scrollbar-thumb{
+    background: dodgerblue;
+    border-radius: 20px;
+}
+.order-container>.user-orders{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+  width: 100%;
+    background-color: rgb(0, 0, 0,0.6);
+    flex-direction: column;
+    visibility: hidden ;
+    
+   
+}
+.order-container>.user-orders>.teblecontaine>.icon{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+.teblecontaine{
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid black;
+   
+}
+.order-containe{
+    width: 100%;
+    max-height: 60vh;
+    overflow: hidden;
+    overflow: auto;
+   
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+   
+}
+.order-containe::-webkit-scrollbar{
+    width: 4px;
+    background-color: black;
+  
+}
+.order-containe::-webkit-scrollbar-thumb{
+    background-color: dodgerblue;
+    border-radius: 20px;
+}
+.order-containe>table{
+    width:100% ;
+   
+    border-collapse: collapse;
+
+}
+.order-containe>table>thead>th{
+    z-index: 10; 
+}
+.order-containe>table>thead{
+    background: rgb(39, 64, 88);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.order-containe>table>thead>tr>th{
+    border-left:1px solid black ;
+    text-align: start;
+    padding: 5px;
+}
+.order-containe>table>tbody>tr>td{
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+.users>td>.deliver{
+    background: gray;
+    color: white;
+    border: none;
+    padding: 2px 5px ;
+    border-radius: 30px;
+    cursor: pointer;
+
+}
+
+

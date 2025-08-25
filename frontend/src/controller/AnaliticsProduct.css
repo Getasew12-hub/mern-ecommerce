@@ -1,0 +1,92 @@
+.anlaitics-container>.allData{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 10px;
+}
+.anlaitics-container{
+     animation: homemove 0.6s linear forwards;
+}
+.eachItem{
+    background: mediumseagreen;
+    padding: 10px ;
+    width: 200px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+
+}
+.eachItem>.icon{
+position: absolute;
+top: 0;
+right: -10px;
+font-size: 100px;
+color: rgb(0, 250, 154,0.4);
+
+
+}
+.anlaitics-container>.chart>.item{
+     margin: 50px auto 0;
+    background: rgb(30, 49, 67);
+    padding: 20px 0;
+     height: 100%;
+     max-width: 1000px;
+    
+}
+.anlaitics-container>.chart{
+     margin: 20px auto 0;
+    background: rgb(30, 49, 67);
+    padding: 20px 0;
+     height: 51vh;
+     max-width: 1000px;
+    
+}
+
+@media(max-width:1000px){
+   .eachItem{
+    width: 150px;
+   
+   } 
+   .anlaitics-container>.allData{
+ gap: 20px;
+   }
+}
+@media(max-width:690px){
+   .eachItem{
+    width: 110px;
+    gap: 10px;
+    font-size: 13px;
+    padding: 5px;
+   
+   } 
+   .anlaitics-container>.allData{
+ gap: 10px;
+
+   }
+}
+@media(max-width:500px){
+   .eachItem{
+    width: 100px;
+      gap: 5px;
+      font-size: 12px;
+   } 
+   .eachItem>h3{
+    font-weight: 100;
+   }
+   .anlaitics-container>.allData{
+ gap: 10px;
+
+   }
+  .anlaitics-container>.chart>.item{
+    height: 70%;
+    
+  }
+  .anlaitics-container>.chart{
+    transform: translateY(10vh);
+  }
+}

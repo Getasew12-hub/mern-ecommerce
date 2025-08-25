@@ -1,0 +1,306 @@
+.navbar-container{
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    background-color: white;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px gray;
+    z-index: 1000;
+    
+}
+.navbar-container>.right-bar>a{
+text-decoration: none;
+color: black;
+}
+.navbar-container >.menuicon{
+    display: none;
+}
+.navbar-container >.left-bar>.let-item{
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+    align-items: center;
+}
+.navbar-container >.left-bar>.let-item a{
+text-decoration: none;
+color: black;
+}
+.navbar-container >.left-bar >.let-item>p{
+    display: flex;
+    align-items: center;
+}
+.navbar-container >.left-bar>.let-item> a > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.navbar-container >.left-bar>.let-item>a>.notification>span,
+.navbar-container >.left-bar>.let-item> a > p >.cart{
+position: absolute;
+top: -10px;
+left: -5px;
+height: 18px;
+width: 18px;
+background: red;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+border: none;
+}
+.navbar-container >.left-bar> .let-item>a > .dashbord,
+.navbar-container >.left-bar> .let-item>a >.sighup,
+.navbar-container >.left-bar> .let-item>a > .login,
+.navbar-container >.left-bar>.let-item> .logout{
+ 
+    border: none;
+    color: white;
+    padding:2px 5px;
+    border-radius: 5px;
+}
+.navbar-container >.left-bar>.let-item> a > .dashbord{
+        padding:5px 7px;
+}
+.navbar-container >.left-bar>.let-item> a >.sighup,
+.navbar-container >.left-bar>.let-item> a > .dashbord{
+         background: mediumseagreen;
+}
+.navbar-container >.left-bar>.let-item> a > .login,
+.navbar-container >.left-bar>.let-item> .logout{
+    background: gray;
+}
+.navbar-container >.left-bar> .let-item>.user{
+    cursor: pointer;
+}
+.navbar-container >.left-bar>.let-item>a>.notification{
+   position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-container>.user{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+     
+}
+.navbar-container>.user>.form{
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+      /* text-align: center; */
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+ 
+}
+.navbar-container>.user>.form>h2{
+    margin-bottom: 30px;
+}
+.navbar-container>.user> .useraddress>.icon,
+.navbar-container>.user>.form>.icon{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.navbar-container>.user> .useraddress{
+    background: white;
+    padding: 20px 30px;
+    border-radius: 5px;
+    position: relative;
+}
+.navbar-container>.user> .useraddress>.iconcontaine{
+    text-align: center;
+}
+.navbar-container>.user> .useraddress>.iconcontaine>.icon{
+         font-size: 100px;
+         margin-bottom: 20px;
+         color: mediumseagreen;
+}
+
+.navbar-container>.user> .useraddress>.Uaddress{
+    display: flex;
+}
+.navbar-container>.user> .useraddress>.update{
+    margin-top: 20px;
+    color: orangered;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+ .navbar-container >.left-bar>.let-item>.clearicon{
+    display: none;
+ }
+
+@media(max-width:900px){
+     .navbar-container >.left-bar{
+          position: fixed;
+          width: 100%;
+        top: 0;
+        bottom: 0;
+        background-color: rgb(0, 0, 0,0.4);
+        left: 0;
+          
+        visibility: hidden ;
+     }
+      .navbar-container >.left-bar.active{
+        visibility: visible;
+        
+      }
+          .navbar-container >.left-bar>.let-item.active{
+transform: translateX(0);
+          }
+    .navbar-container >.left-bar>.let-item{
+      
+       position: absolute;
+        top: 0;
+        bottom: 0;
+        background-color: white;
+        left: 0;
+        padding:50px 80px 10px;
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        box-sizing: border-box;
+        transform: translateX(-110%);
+        transition: 0.5s linear;
+       
+        
+    }
+     .navbar-container>a{
+        text-decoration: none;
+        color: black;
+     }
+     .navbar-container>a> .cartcontaine,
+     .navbar-container>a>.notification{
+     position: absolute;
+    top: 15px;
+    right: 20px;
+  
+   
+     }
+
+     .navbar-container>a> .cartcontaine{
+ right: 60px;
+  /* top: 8px; */
+
+     }
+     
+     .navbar-container>a>.notification>span,
+     .navbar-container>a>.cartcontaine>.cart{
+        position: absolute;
+top: -5px;
+left: -10px;
+height: 18px;
+width: 18px;
+background: red;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+border: none;
+     }
+    .navbar-container >.left-bar>.let-item>.clearicon{
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 30px;
+        color:dodgerblue;
+        border: 1px solid dodgerblue;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+      .navbar-container >.left-bar>.let-item>a>.home{
+        font-size: 25px;
+      }
+    .navbar-container >.menuicon{
+        position: absolute;
+        display: block;
+       cursor: pointer;
+    }
+    .navbar-container>.right-bar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+
+ @media(min-width:901px){
+.navbar-container >.left-bar{
+    visibility: visible;
+   
+}
+ .navbar-container >.left-bar>.let-item{
+    transform: translateX(0);
+ }
+}
+@media(max-width:500px){
+    .navbar-container >.left-bar>.let-item{
+        width: 75%;
+    }
+    .navbar-container{
+        bottom: 0;
+        top:auto;
+        height: 34px;
+        background-color: rgb(6, 6, 6,0.5);
+    }
+
+
+     .navbar-container >a>.home{
+        position: absolute;
+        left: 50%;
+        top: 5px;
+        color: white;
+    }
+    .navbar-container>a> .cartcontaine{
+        color: white;
+    }
+     .navbar-container>a>.notification{
+        position: fixed;
+        top: 10px;
+        right: 10px;
+      
+        
+     }
+       .navbar-container >.menuicon{
+       
+        background: transparent;
+        color: white;
+        border: none;
+       }
+.navbar-container>.user>.form{
+    border-radius: 0;
+}
+.navbar-container>.user>.form>h2{
+     font-size: 20px;
+   
+}
+.navbar-container>a> .cartcontaine{
+    top: 8px;
+}
+
+}
