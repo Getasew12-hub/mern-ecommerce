@@ -27,7 +27,7 @@ useEffect(()=>{
      
    }
    }
-  header.current.addEventListener('scroll',Scroll)
+  header?.current?.addEventListener('scroll',Scroll)
 
   return ()=>{if(header.current){
    return removeEventListener('scroll',Scroll);
