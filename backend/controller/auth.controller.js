@@ -24,8 +24,8 @@ res.cookie("accessToken",accessToken,{
 });
 res.cookie("refreshToken",refreshToken,{
     httpOnly:true,
-    secure:true,
-    sameSite:'strict',
+    secure:process.env.NODE_ENV==="production" ? true : false,
+    sameSite:'none',
     maxAge:15*24*60*60*1000 //15 days
 
 });
