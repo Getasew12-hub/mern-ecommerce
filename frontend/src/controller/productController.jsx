@@ -19,8 +19,8 @@ const {user} =userStore();
          <p>{product.name}</p>
 
          <div className="price-containe">
-         <h3 style={{color:"mediumseagreen",margin:"10px 0"}}>${product.price.toFixed(0)} </h3>
-         {product.orginal && product.price.toFixed(0)<product.orginal.toFixed(0) && <p className='orginalprice'>${product.orginal.toFixed(0)} </p>}
+         <h3 style={{color:"mediumseagreen",margin:"10px 0"}}>${product?.price?.toFixed(0)} </h3>
+         {product.orginal && product?.price?.toFixed(0)<product?.orginal?.toFixed(0) && <p className='orginalprice'>${product?.orginal?.toFixed(0)} </p>}
          </div>
          <div className='addtocart' onClick={()=>{
             if(!user) return toast.error("Please first login or signup")

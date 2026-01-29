@@ -11,7 +11,7 @@ async function CupponeCalculation(cartItems){
                 return{
                     ...val,
                     original:val.price,
-                    price:(val.price-(val.price*(val.discount/100))).toFixed(0)
+                    price:(val.price-(val.price*(val.discount/100)))?.toFixed(0)
                 }
             })
          }

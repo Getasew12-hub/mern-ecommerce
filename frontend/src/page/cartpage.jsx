@@ -87,17 +87,17 @@ function removevisibility(){
                        <div className="order-price">
                         <div className="item">
                             <p>Orginal price</p>
-                            <h4>${original.toFixed(0)} </h4>
+                            <h4>${original?.toFixed(0)} </h4>
                         </div>
                       {original-total>0 && <div className="item">
                            <p>Save</p>
-                            <h4 style={{color:"mediumseagreen"}}>${(original-total).toFixed(0)} </h4>
+                            <h4 style={{color:"mediumseagreen"}}>${(original-total)?.toFixed(0)} </h4>
                         </div>}
                        </div>
 
                        <div className="total">
                         <p>Total</p>
-                        <h3 style={{color:"mediumseagreen"}}>${total.toFixed(0)} </h3>
+                        <h3 style={{color:"mediumseagreen"}}>${total?.toFixed(0)} </h3>
                        </div>
                        <button onClick={Paymenthadler}>{wait?  <Small/>: 'Proceed to checkout'}</button>
                       <Link to={"/"} > <p>or <span>Continue shopping <ArrowForwardOutlinedIcon/></span></p></Link>
@@ -119,8 +119,8 @@ function removevisibility(){
                   <div className="discription">
                   <p>{val.name}</p>
                   <div className="price">
-                    <h3 style={{color:"mediumseagreen"}}>${val.price.toFixed(0)} </h3>
-                   {val.original && val.original>val.price && <p style={{color:"gray",textDecoration:"line-through"}}>${val.original.toFixed(0)} </p>}
+                    <h3 style={{color:"mediumseagreen"}}>${val?.price?.toFixed(0)} </h3>
+                   {val.original && val.original>val.price && <p style={{color:"gray",textDecoration:"line-through"}}>${val?.original?.toFixed(0)} </p>}
                   </div>
 
                   <button  onClick={()=>AddToCart(val.id,val.price)}> {smallLoad==val.id ?<Small/>:<>  <ShoppingCartOutlinedIcon className='shopingicon'/> Add to cart</>}</button>

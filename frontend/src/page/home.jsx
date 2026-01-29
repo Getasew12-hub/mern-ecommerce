@@ -126,9 +126,9 @@ if(size<=650){
                   <div className="discription">
                   <p>{val.name}</p>
                   <div className="price">
-                    <h3 style={{color:"mediumseagreen"}}>${val.price.toFixed(0)} </h3>
+                    <h3 style={{color:"mediumseagreen"}}>${val?.price?.toFixed(0)} </h3>
 
-                   {val.orginal && val.orginal.toFixed(0)>val.price.toFixed(0) && <p style={{color:"gray",textDecoration:"line-through"}}>${val.orginal.toFixed(0)} </p>}
+                   {val.orginal && val?.orginal?.toFixed(0)>val?.price?.toFixed(0) && <p style={{color:"gray",textDecoration:"line-through"}}>${val?.orginal?.toFixed(0)} </p>}
                   </div>
 
                   <button  onClick={()=>AddToCart(val.id,val.price)} >{smallLoad==val.id ?<Small/> :<><ShoppingCartOutlinedIcon className='shopingicon'/> Add to cart</>}</button>

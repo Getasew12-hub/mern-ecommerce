@@ -43,7 +43,7 @@ function cartController({cart}) {
         }}><AddOutlinedIcon className='icon'/></button>
     </div>
   <div className="price-containe">
-    <h3 className="price" style={{color:"mediumseagreen"}}>${parseFloat(cart.price).toFixed(0)} </h3>
+    <h3 className="price" style={{color:"mediumseagreen"}}>${parseFloat(cart.price)?.toFixed(0)} </h3>
     {cart.original && cart.price<cart.original  && <p className='orginalprice'>${cart.original} </p>}
     
     </div>
