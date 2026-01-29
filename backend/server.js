@@ -30,7 +30,9 @@ app.use(cookiesParse());
 
 
 
-
+ app.get("/",(req,res)=>{
+    res.send("API is running....");
+ });
 app.use("/api/auth",authRouther)
 app.use("/api/product",productRouther)
 app.use("/api/cart",cartRouther)
