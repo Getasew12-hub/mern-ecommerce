@@ -31,7 +31,7 @@ app.use(cookiesParse());
     });
 
 app.use(cors({
-    origin:"https://adeyabeba-five.vercel.app",
+    origin:[process.env.FRONTEND_URL],
     
     credentials:true,
 }))
