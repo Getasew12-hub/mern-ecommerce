@@ -4,7 +4,7 @@ export const getOrderProducts=async (req,res) => {
   
     try {
 
-        const getordered=await db.query("SELECT  SUM(CASE WHEN o.we_delivery = FALSE THEN 1 ELSE 0 END )  AS deliver,p.img,p.name,COUNT(o.userid) AS totalorder,p.price,p.id FROM orders o LEFT JOIN products p ON p.id=o.product GROUP BY p.img,p.name,p.price,p.id");
+        const getordered=await db.query("SELECT  SUM(CASE WHEN o.we_delivery = FALSE THEN 1 ELSE 0 END )  AS deliver,p.img,p.name,COUNT(o.userid) AS totalorder,p.price,p.id FROM orders o LEFT JOIN products p ON p.id=o.product GROUP BY p.img,p.name,p.price,p.id ORDER BY id DESC;");
     
         return res.status(200).json(getordered.rows)
     } catch (error) {

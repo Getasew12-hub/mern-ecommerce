@@ -19,13 +19,14 @@ export const addToCart=async (req,res) => {
 
         if(getItem.rows.length>0){
             const update=await db.query("SELECT COUNT(*) AS totalcart FROM cartitem WHERE userid=$1;",[req.user.id]) 
-            return res.status(200).json(update.rows[0].totalcart)
+            return res.status(200).json({count:update.rows[0].totalcart,item:getItem.rows[0]})
         }
-        await db.query("INSERT INTO cartitem(product,userid,price) VALUES($1,$2,$3);",[id,req.user.id,price]);
+       await db.query("INSERT INTO cartitem(product,userid,price) VALUES($1,$2,$3);",[id,req.user.id,price]);
 
         const update=await db.query("SELECT COUNT(*) AS totalcart FROM cartitem WHERE userid=$1;",[req.user.id]);
+        const cart=await db.query('SELECT c.*,p.img,p.name,p.discount FROM cartitem c LEFT JOIN products p ON c.product=p.id WHERE product=$1 AND userid=$2;',[id,req.user.id]);
 
-        return res.status(200).json(update.rows[0].totalcart)
+        return res.status(200).json({count:update.rows[0].totalcart,item:cart.rows[0]})
     } catch (error) {
           console.log("error on add to cart ",error.message);
         return res.status(500).json({error:"Internal sever error"})

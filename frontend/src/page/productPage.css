@@ -1,5 +1,5 @@
 .products-controller{
-    padding: 70px;
+    padding: 70px 10px;
 }
 .products-controller >.product{
     display: flex;
@@ -7,34 +7,32 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 0 10%;
+    padding: 0 ;
+    max-width: 1300px;
+    margin: 0 auto;
+  
 }
 .products-controller >.product>.item-contanine{
    
-   /* width: 100%; */
+   width: 100%;
    display: grid;
-   grid-template-columns: repeat(5,1fr);
+   grid-template-columns: repeat(auto-fill,minmax(200px ,1fr));
   
    gap: 15px;
-   flex-wrap: wrap;
-   max-width: 1000px;
+  box-sizing: border-box;
+   
   
 }
 .products-controller >.product>h1{
     animation: hometop 0.6s linear  forwards;
 }
 
-@media(max-width:950px){
-    .products-controller >.product>.item-contanine{
-        grid-template-columns: repeat(4,1fr);
-    }
-}
-@media(max-width:780px){
-    .products-controller >.product>.item-contanine{
-        grid-template-columns: repeat(3,1fr);
-    }
-}
+
+
 @media(max-width:500px){
+    .products-controller >.product>.item-contanine{
+        grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+    }
     .products-controller{
         padding: 20px 10px 50px;
     }

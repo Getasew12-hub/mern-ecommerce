@@ -28,7 +28,7 @@ const {user,upddateGet,Address,userAddress}=userStore()
 useEffect(()=>{
   getCart()
    userAddress()
-},[getCart,cartLength])
+},[getCart])
 useEffect(()=>{
     recommendProduct()
 },[cartLength])
@@ -100,7 +100,7 @@ function removevisibility(){
                         <h3 style={{color:"mediumseagreen"}}>${total.toFixed(0)} </h3>
                        </div>
                        <button onClick={Paymenthadler}>{wait?  <Small/>: 'Proceed to checkout'}</button>
-                       <p>or <span>Continue shopping <ArrowForwardOutlinedIcon/></span></p>
+                      <Link to={"/"} > <p>or <span>Continue shopping <ArrowForwardOutlinedIcon/></span></p></Link>
             </div>
          </div>}
 
@@ -123,7 +123,7 @@ function removevisibility(){
                    {val.original && val.original>val.price && <p style={{color:"gray",textDecoration:"line-through"}}>${val.original.toFixed(0)} </p>}
                   </div>
 
-                  <button  onClick={()=>AddToCart(val.id,val.price)}> {smallLoad==val.id ?<Small/>:<>  <ShoppingCartOutlinedIcon/> Add to cart</>}</button>
+                  <button  onClick={()=>AddToCart(val.id,val.price)}> {smallLoad==val.id ?<Small/>:<>  <ShoppingCartOutlinedIcon className='shopingicon'/> Add to cart</>}</button>
                   </div>
                 </div>
         )}

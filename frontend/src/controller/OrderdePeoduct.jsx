@@ -69,8 +69,10 @@ if(deliver){
 }
 }
 function deleteAll(id,deliver){
+  console.log("the deliver is this",deliver)
 if(deliver==0){
-  deleteAllDelivery(id)
+  // deleteAllDelivery(id)
+  console.log(orderPro)
 }else{
   toast.error('You can not delete it before deliver all customer')
 }

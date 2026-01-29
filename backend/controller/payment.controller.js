@@ -94,7 +94,7 @@ export const deleteAllNoti=async (req,res) => {
 
 export const getNoti=async(req,res)=>{
 try {
-    const notificatin=await db.query("SELECT * FROM notification  WHERE userid=$1;",[req.user.id]);
+    const notificatin=await db.query("SELECT * FROM notification  WHERE userid=$1 ORDER BY id DESC ;",[req.user.id]);
     return res.status(200).json(notificatin.rows)
 } catch (error) {
            console.log('error on get notification',error.message);

@@ -17,11 +17,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import Mobileshowbar from './Mobileshowbar';
 
 function Navbar() {
   const userVisible=useRef()
   const menushow=useRef()
   const menuitem=useRef()
+  const letbar=useRef()
   const [size,setSize]=useState(innerWidth)
   const {user,logout,userAddress,Address,upddateGet}=userStore();
  const {Notification}=notiStore()
@@ -83,23 +85,29 @@ return ()=> removeEventListener('resize',handler)
  function menu(){
  menushow.current.classList.add('active');
  menuitem.current.classList.add('active');
+ letbar.current.classList.add('active');
 
  }
 function clearMenu(e){
   e.stopPropagation()
   menushow.current.classList.remove('active');
   menuitem.current.classList.remove('active');
+  letbar.current.classList.remove('active');
 
 }
 function removeMenu(){
      menushow.current.classList.remove('active');
   menuitem.current.classList.remove('active');
+  letbar.current.classList.remove('active');
 }
 
 
   return (
-    <div className='navbar-container'>
 
+    <div className='navbar-allcontainer'>
+    <div className='navbar-container'>
+           <div className="background" ref={menushow} onClick={removeMenu}/>
+           
               {user && size<=900 && <Link to={'/cart'}><p className='cartcontaine'><ShoppingCartOutlinedIcon style={{fontSize:'25px'}}/>
           {cartLength>0 &&  <span className='cart'>{cartLength}</span>}
            </p></Link>  }
@@ -116,17 +124,19 @@ function removeMenu(){
             <NotificationsIcon style={{fontSize:'25px'}}/> </p></Link> }  
 
         <button className='menuicon' onClick={menu}><MenuIcon/></button>
-       {size >500 &&  <div className="right-bar"  >
-          <Link to={'/'}> <h2>E-Commerce</h2></Link>
-          </div>}
 
-          <div className="left-bar"  ref={menushow} onClick={removeMenu} >
+        
+        <div className="right-bar"  >
+          <Link to={'/'}> <h2>Adey Abeba</h2></Link>
+          </div>
+
+          <div className="left-bar"  ref={letbar} >
             <div className="let-item" ref={menuitem} >
 
 
             <ClearIcon className='clearicon' onClick={clearMenu}/>
 
-           <Link to={"/"}>  <p className='home'>Home</p></Link>
+           <Link to={"/"}>  <p className='home'  onClick={size<=900 && removeMenu}>Home</p></Link>
 
           
            {user && size>900 &&  <Link to={'/notification'}> <p className='notification' onClick={UpdateNotiRead}> {Length>0 && <span>{Length}</span>}
@@ -136,15 +146,27 @@ function removeMenu(){
            {user && size>900 && <Link to={'/cart'}><p><ShoppingCartOutlinedIcon/> Cart
           {cartLength>0 &&  <span className='cart'>{cartLength}</span>}
            </p></Link>  }
-           {admin && <Link to={"/dashbord"}><p className='dashbord'>Dashbord</p></Link>}  
-            {!user &&<Link to={"/signup"}> <p className='sighup'  ><PersonOutlinedIcon/> Sign up</p></Link>}
-            {!user && <Link to={"/login"}> <p className='login'><LoginOutlinedIcon/> Login</p></Link>}
-            {user &&  <p className='logout' onClick={()=> logout()} style={{cursor:"pointer"}}><LogoutOutlinedIcon/> Log out</p>}
+
+
+           {admin && <Link to={"/dashbord"}><p className='dashbord'  onClick={size<=900 && removeMenu}>Dashbord</p></Link>}  
+
+
+            {!user &&<Link to={"/signup"}> <p className='sighup'  onClick={size<=900 && removeMenu}><PersonOutlinedIcon/> Sign up</p></Link>}
+
+            {!user && <Link to={"/login"}> <p className='login' onClick={size<=900 && removeMenu}><LoginOutlinedIcon/> Login</p></Link>}
+
+            
 
              {user &&<p className='user' onClick={showForm}><PersonOutlinedIcon/> {user.name}</p>}
-
+              {user &&  <p className='logout' onClick={()=> logout()} style={{cursor:"pointer"}}><LogoutOutlinedIcon/> Log out</p>}
              </div>
           </div>
+
+          {/* mobile show */}
+  <div className='mobileshowbar_container'>
+
+        {/* <Mobileshowbar/> */}
+  </div>
 
           <div className="user" ref={userVisible} onClick={removeVisbility}>
                
@@ -172,6 +194,8 @@ function removeMenu(){
                   <p className='update' onClick={UpdateLocation}> Update address <ArrowForwardOutlinedIcon/></p>
             </div>}
           </div>
+    </div>
+
     </div>
   )
 }

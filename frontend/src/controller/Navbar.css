@@ -1,17 +1,29 @@
-.navbar-container{
-    position: fixed;
+.navbar-allcontainer{
+     position: fixed;
     top: 0 ;
     left: 0;
+ background-color: white;
+   
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 50px;
-    background-color: white;
-    align-items: center;
     box-sizing: border-box;
     box-shadow: 0 2px 5px gray;
     z-index: 1000;
+   
+}
+
+.navbar-container{
+   
+    display: flex;
+    justify-content: space-between ;
+     align-items: center;
+    padding: 10px 10px;
+    max-width: 1300px;
+    margin: 0 auto;
+   
     
+}
+.mobileshowbar_container{
+    display: none;
 }
 .navbar-container>.right-bar>a{
 text-decoration: none;
@@ -148,21 +160,40 @@ border: none;
  .navbar-container >.left-bar>.let-item>.clearicon{
     display: none;
  }
-
+.navbar-container >.background{
+    display: none;
+}
 @media(max-width:900px){
+    .mobileshowbar_container{
+        display: block;
+    }
      .navbar-container >.left-bar{
+          position: fixed;
+          /* width: 100%; */
+        top: 0;
+        bottom: 0;
+       
+        left: 0;
+          /* display: none; */
+      visibility: hidden;
+     }
+    .navbar-container >.background{
+        display: block;
           position: fixed;
           width: 100%;
         top: 0;
         bottom: 0;
-        background-color: rgb(0, 0, 0,0.4);
+        background: rgb(14, 14, 14,0.5);
         left: 0;
-          
-        visibility: hidden ;
+        display: none;
+       
      }
-      .navbar-container >.left-bar.active{
+       .navbar-container >.left-bar.active{
         visibility: visible;
         
+      }
+      .navbar-container >.background.active{
+        display: block;
       }
           .navbar-container >.left-bar>.let-item.active{
 transform: translateX(0);
@@ -174,16 +205,17 @@ transform: translateX(0);
         bottom: 0;
         background-color: white;
         left: 0;
-        padding:50px 80px 10px;
+        padding:10px;
         width: 350px;
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
-        gap: 20px;
-        justify-content: flex-start;
-        align-items: flex-start;
+        gap: 10px;
+      
+
         box-sizing: border-box;
         transform: translateX(-110%);
         transition: 0.5s linear;
+
        
         
     }
@@ -246,6 +278,18 @@ border: none;
         align-items: center;
         width: 100%;
     }
+
+    .navbar-container >.left-bar> .let-item>a > .dashbord,
+.navbar-container >.left-bar> .let-item>a >.sighup,
+.navbar-container >.left-bar> .let-item>a > .login,
+.navbar-container >.left-bar>.let-item> .logout{
+    background: transparent;
+    color: black;
+}
+   .right-bar{
+        display: none ;
+      }
+
 }
 
 
@@ -259,10 +303,17 @@ border: none;
  }
 }
 @media(max-width:500px){
-    .navbar-container >.left-bar>.let-item{
-        width: 75%;
-    }
-    .navbar-container{
+   
+    /* .navbar-container >.left-bar>.let-item{
+        width: 100%;
+    } */
+     /* .navbar-container >.left-bar{
+       
+        width: 80%;
+     } */
+   
+   .navbar-allcontainer{
+        
         bottom: 0;
         top:auto;
         height: 34px;
@@ -283,11 +334,19 @@ border: none;
         position: fixed;
         top: 10px;
         right: 10px;
+        height: 25px;
+        width: 25px;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        box-shadow: 0 0 5px black;
       
         
      }
        .navbar-container >.menuicon{
-       
+         transform: translateY(7px);
         background: transparent;
         color: white;
         border: none;

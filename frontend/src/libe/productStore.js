@@ -162,6 +162,7 @@ getAnalitycs:async () => {
 },
 
 getFeatured:async (user) => {
+   
     set({lodding:true})
 
     try {

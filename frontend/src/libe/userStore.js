@@ -64,11 +64,29 @@ const userStore=create((set,get)=>({
         }
     },
     creatAddress:async (e) => {
-        set({smallLodding:true})
         
+        const {state,region,city,postaCode,phoneNumber}=e
+
+          const stateres=Validateallform(state);
+          const regionres=Validateallform(region);
+          const cityres=Validateallform(city);
+          const postaCoderes=Validateallform(postaCode);
+          const phoneNumberres=Validateallform(phoneNumber);
+         if(phoneNumber?.length<10) return toast.error('Phone number needed at list 10 charactes')
+        if(stateres || regionres || cityres || postaCoderes || phoneNumberres){
+            return toast.error('All input is required')
+        }
+
+            function Validateallform(val){
+                if(!val) return true;
+                if(val.trim().length==0) return true;
+
+                return false;
+            }
+        set({smallLodding:true})
     try {
        
-        const {state,region,city,postaCode,phoneNumber}=e
+        
         const res=await axios.post('/addres',{state,region,city,postaCode,phoneNumber})
          
         set((pre)=>({

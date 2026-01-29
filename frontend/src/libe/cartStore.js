@@ -2,6 +2,23 @@ import { create } from "zustand";
 import axios from "../middleware/axios"
 import toast from "react-hot-toast";
 import userStore from "./userStore";
+
+async function CupponeCalculation(cartItems){
+    let carts=cartItems;
+      const cartItem=await axios.get("/cuppone");
+         if(cartItem.data.message===true){
+            carts=carts.map((val)=> {
+                return{
+                    ...val,
+                    original:val.price,
+                    price:(val.price-(val.price*(val.discount/100))).toFixed(0)
+                }
+            })
+         }
+            return carts;
+
+}
+
 const cartStore=create((set,get)=>({
 
     lodding:false,
@@ -21,16 +38,8 @@ const cartStore=create((set,get)=>({
         const res=await axios.get("/cart");
        
          let carts=res.data;
-         const cartItem=await axios.get("/cuppone");
-         if(cartItem.data.message===true){
-            carts=carts.map((val)=> {
-                return{
-                    ...val,
-                    original:val.price,
-                    price:(val.price-(val.price*(val.discount/100))).toFixed(0)
-                }
-            })
-         }
+         carts =await CupponeCalculation(carts);
+        console.log("the cart after cuppone",carts);
         set({carts,cartLength:res.data.length,lodding:false})
 
         get().getCalculated()
@@ -40,15 +49,19 @@ const cartStore=create((set,get)=>({
     }
   },
     AddToCart:async (id,price) => {
-         set({smallLoad:id})
+         
    if(!userStore.getState().user)  return toast.error('Please first login or signup')
+
+    set({smallLoad:id})
     try {
         
         const res=await axios.post('/cart',{id,price})
           set({smallLoad:null})
-         set({cartLength:res.data})
+         set({cartLength:res.data.count,
+            carts:[...get().carts,res.data.item]
+        })
          toast.success("Succesfully add")
-         
+         console.log("cart after add",res.data.item);
           get().getCalculated()
     } catch (error) {
        set({smallLoad:null})

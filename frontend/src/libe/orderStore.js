@@ -23,7 +23,7 @@ const orderStore=create((set,get)=>({
         set({smallLodding:true,click:id})
         try {
             const res=await axios.get(`/ordered/user/${id}`);
-           
+            console.log("orderd user is this",res.data)
             set({smallLodding:false,orderUser:res.data,})
         } catch (error) {
             set({smallLodding:false})
@@ -32,6 +32,7 @@ const orderStore=create((set,get)=>({
     updateAdminDelivery:async (item) => {
         set({click:item})
         try {
+            console.log('order pro',get().orderPro)
             const res=await axios.patch(`/ordered/user`,{item});
                set((pre)=>({
             orderUser:pre.orderUser.map((val)=> val.val==item? {...val,we_delivery:true}: val),

@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import db from "../libe/pgDatabase.js";
 import jwt from "jsonwebtoken";
 import env from "dotenv"
-import {redis} from "../libe/redis.js"
+// import {redis} from "../libe/redis.js"
 
 
 env.config();
@@ -40,7 +40,7 @@ if(password.length<6) return res.status(404).json({error:"Password length must t
 
 const response=await db.query("SELECT * FROM userinfo WHERE email=$1;",[email]);
 
-if(response.rows.length>0)  return res.status(404).json({error:"User is already exsit,please login"});
+if(response.rows.length>0)  return res.status(404).json({error:"User is already exsit,please try to login"});
   const bcryptResponse=await bcrypt.hash(password,salt);
   if(bcryptResponse){
     const newUser=await db.query("INSERT INTO userinfo(name,email,password) VALUES($1,$2,$3) RETURNING *;",[name,email,bcryptResponse]);
@@ -48,7 +48,7 @@ if(response.rows.length>0)  return res.status(404).json({error:"User is already 
    
     await db.query("INSERT INTO cuppone(userid) VALUES($1);",[user.id]);
      const {accessToken,refreshToken}=await genereatToken(user.id);
-    await redis.set(`refreshToken${user.id}`,refreshToken);
+    // await redis.set(`refreshToken${user.id}`,refreshToken);
   
    setCookies(res,accessToken,refreshToken);
    return res.status(200).json(user)
@@ -75,7 +75,8 @@ export const login=async (req,res)=>{
         
         const {accessToken,refreshToken}=await genereatToken(user.id);
         
-         await redis.set(`refreshToken${user.id}`,refreshToken);
+        //  await redis.set(`refreshToken${user.id}`,refreshToken);
+
 
          
    setCookies(res,accessToken,refreshToken);
@@ -100,7 +101,7 @@ try {
     if(refreshToken) {
     const decode=jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET);
     
-   await redis.del(`refreshToken${decode.id}`);
+  //  await redis.del(`refreshToken${decode.id}`);
     }
    res.clearCookie("refreshToken");
    res.clearCookie("accessToken");
@@ -129,9 +130,9 @@ export const refressToken=async (req,res) => {
   
      
       const decode= jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET);
-      const redistoken=await redis.get(`refreshToken${decode.id}`);
+      // const redistoken=await redis.get(`refreshToken${decode.id}`);
         
-      if(refreshToken!==redistoken) return res.status(401).json({error:"Invalid refrehs token"});
+      // if(refreshToken!==redistoken) return res.status(401).json({error:"Invalid refrehs token"});
            
       const newAccessToken=jwt.sign({id:decode.id},process.env.ACCESS_TOKEN_SECRET,{expiresIn:'15m'});
      

@@ -38,6 +38,7 @@ const featurd_item=useRef()
   const{AddToCart,smallLoad}=cartStore()
 
 useEffect(()=>{
+  if(Featured.length>0) return
   getFeatured(user)
 },[getFeatured])
 
@@ -69,19 +70,23 @@ return ()=> removeEventListener('resize',handler)
 },[])
 
  if(lodding) return <div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh"}}>{<Large/>}</div>
-
+ 
+ console.log("the featured is this",Featured)
   function  Prev() {
-  
- setInitional(initional+imagePerPage);
-
+  if(featurd_item.current){
+    console.log("the width of this",featurd_item.current.scrollLeft, ":::",featurd_item.current.offsetWidth)
+ featurd_item.current.scrollBy({left:-featurd_item.current.offsetWidth,behavior:'smooth'});
+  }
 }
   function Next() {
   
- setInitional(initional-imagePerPage);
+  if(featurd_item.current){
+ featurd_item.current.scrollBy({left:+featurd_item.current.offsetWidth,behavior:'smooth'});
+  }
 
 }
-const diableNext=size<=1200 ?(-initional)>=((Featured.length-3)): (-initional)>=((Featured.length-4));
-const diablePre=initional>=0;
+
+
 
 
 const freaturedItem=[...Featured]
@@ -106,7 +111,7 @@ if(size<=650){
         <h1>Featured Products</h1>
            <div className="featured-scroll">
           <div className="featured-contaniner">
-            <div className="featured-item" ref={featurd_item} style={{transform: `translateX(${trasform}%)`}} >
+            <div className="featured-item" ref={featurd_item} >
 
 
 
@@ -126,15 +131,15 @@ if(size<=650){
                    {val.orginal && val.orginal.toFixed(0)>val.price.toFixed(0) && <p style={{color:"gray",textDecoration:"line-through"}}>${val.orginal.toFixed(0)} </p>}
                   </div>
 
-                  <button  onClick={()=>AddToCart(val.id,val.price)} >{smallLoad==val.id ?<Small/> :<><ShoppingCartOutlinedIcon/> Add to cart</>}</button>
+                  <button  onClick={()=>AddToCart(val.id,val.price)} >{smallLoad==val.id ?<Small/> :<><ShoppingCartOutlinedIcon className='shopingicon'/> Add to cart</>}</button>
                   </div></div>
                 </div>)} 
 
 
                 
                 </div>
-               <button className='left icon' onClick={Prev} disabled={diablePre} style={{background:diablePre && 'gray',cursor: diablePre &&'not-allowed'}}  > <KeyboardArrowLeftOutlinedIcon  /></button>
-              <button className='right icon' disabled={diableNext} onClick={Next} style={{background:diableNext && 'gray',cursor: diableNext &&'not-allowed'}}> <KeyboardArrowRightOutlinedIcon    /></button> 
+               <button className='left icon' onClick={Prev}  > <KeyboardArrowLeftOutlinedIcon  /></button>
+              <button className='right icon'  onClick={Next} > <KeyboardArrowRightOutlinedIcon    /></button> 
                </div>
                </div>
        </div>}

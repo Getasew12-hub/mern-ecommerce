@@ -25,7 +25,7 @@ const {user} =userStore();
          <div className='addtocart' onClick={()=>{
             if(!user) return toast.error("Please first login or signup")
              AddToCart(product.id,product.price)
-         }}>{smallLoad==product.id ? <Small/>  :<> <ShoppingCartOutlinedIcon/>  Add to cart</>}</div>
+         }}>{smallLoad==product.id ? <Small/>  :<> <ShoppingCartOutlinedIcon className='shopingicon'/>  Add to cart</>}</div>
          </div>
     </div>
   )
