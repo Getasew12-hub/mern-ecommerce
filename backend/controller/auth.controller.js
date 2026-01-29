@@ -18,8 +18,8 @@ const genereatToken=async(user)=>{
 const setCookies=(res,accessToken,refreshToken)=>{
 res.cookie("accessToken",accessToken,{
     httpOnly:true,
-    secure:true,
-    sameSite:'strict',
+    secure:process.env.NODE_ENV==="production" ? true : false,
+    sameSite:'none',
     maxAge:60*1000*15
 });
 res.cookie("refreshToken",refreshToken,{
