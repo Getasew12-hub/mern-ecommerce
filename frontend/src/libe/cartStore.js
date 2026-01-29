@@ -32,7 +32,7 @@ const cartStore=create((set,get)=>({
   getCart:async () => {
     
       set({lodding:true,first:false})
-      
+      console.log("getting cart");
     
     try {
         const res=await axios.get("/cart");
@@ -45,6 +45,7 @@ const cartStore=create((set,get)=>({
         get().getCalculated()
     } catch (error) {
         set({lodding:false})
+        toast.error("Faild to get cart"+error.message);
        
     }
   },

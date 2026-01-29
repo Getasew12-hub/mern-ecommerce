@@ -14,6 +14,7 @@ import paymetRouther from "./Routher/payment,routher.js"
 import orederedRouther from "./Routher/ordered.routher.js"
 import cors from "cors";
 
+
 env.config();
 
 const app=express();
@@ -48,15 +49,15 @@ app.use("/api/payment",paymetRouther)
 app.use("/api/ordered",orederedRouther)
 
 
-if(process.env.NODE_ENV=='production'){
+// if(process.env.NODE_ENV=='production'){
 
-    app.use(express.static(path.join(__dirname,'frontend/dist')));
+//     app.use(express.static(path.join(__dirname,'frontend/dist')));
 
-       app.use((req,res)=>{
+//        app.use((req,res)=>{
 
-        res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
-    })
-}
+//         res.sendFile(path.join(__dirname,"frontend","dist","index.html"))
+//     })
+// }
 app.listen(port,()=>{
     console.log(`Server is running on port:${port}`)
 })
