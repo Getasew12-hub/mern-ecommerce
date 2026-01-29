@@ -12,6 +12,7 @@ import cupponeRouther from "./Routher/cuppone.routher.js"
 import analitycsRouther from "./Routher/analitycs.routher.js"
 import paymetRouther from "./Routher/payment,routher.js"
 import orederedRouther from "./Routher/ordered.routher.js"
+import cors from "cors";
 
 env.config();
 
@@ -28,7 +29,11 @@ app.use(cookiesParse());
         api_secret:  process.env.CLOUDNARY_API_SECRET, // Click 'View API Keys' above to copy your API secret
     });
 
-
+app.use(cors({
+    origin:[process.env.FRONTEND_URL],
+    
+    credentials:true,
+}))
 
  app.get("/",(req,res)=>{
     res.send("API is running....");
