@@ -311,12 +311,14 @@ border: none;
        
         width: 80%;
      } */
-   
+   .right-bar{
+        display: none !important
+      }
    .navbar-allcontainer{
         
         bottom: 0;
         top:auto;
-        height: 34px;
+        height: 50px;
         background-color: rgb(6, 6, 6,0.5);
     }
 
@@ -346,10 +348,13 @@ border: none;
         
      }
        .navbar-container >.menuicon{
-         transform: translateY(7px);
+         /* transform: translate(20px,-8px); */
+         top: 5px;
+         left: 50px;
         background: transparent;
         color: white;
         border: none;
+      
        }
 .navbar-container>.user>.form{
     border-radius: 0;
@@ -360,6 +365,7 @@ border: none;
 }
 .navbar-container>a> .cartcontaine{
     top: 8px;
+    right: 50px;
 }
 
 }
