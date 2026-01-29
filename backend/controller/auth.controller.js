@@ -96,8 +96,15 @@ export const login=async (req,res)=>{
 export const logout=async (req,res)=>{
 try {
        
-   res.clearCookie("refreshToken");
-   res.clearCookie("accessToken");
+ const cookieOptions = {
+      httpOnly: true,
+      secure: true, // Crucial for Vercel/HTTPS
+      sameSite: 'None', // Matches how it's likely set in production
+      path: '/' // Ensure this matches the path used when setting the cookie
+    };
+
+    res.clearCookie("refreshToken", cookieOptions);
+    res.clearCookie("accessToken", cookieOptions);
 
    return res.status(200).json({message:"Successfully logout"})
 } catch (error) {
